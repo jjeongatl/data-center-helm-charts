@@ -15,7 +15,7 @@ on:
 
 jobs:
   test:
-    if: ${{ github.event.label.name == 'e2e' }}
+    if: ${{ github.event.label.name == 'e2e' || github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
     name: Deploy Infrastructure and Run E2E Tests
     runs-on: ubuntu-latest
     env:
